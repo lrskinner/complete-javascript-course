@@ -154,25 +154,35 @@ const language = "English";
 
 //SWITCH STATEMENT
 
-const language2 = 'English';
+// const language2 = 'English';
 
-switch (language2) {
-    case 'Chinese':
-    case 'Mandarin':
-        console.log('Most number of native speakers');
-        break;
-    case 'Spanish':
-        console.log('2nd most');
-        break;
-    case 'English':
-        console.log('3rd most');
-        break;
-    case 'Hindi':
-        console.log('4th most');
-        break;
-    case 'Hindi':
-        console.log('4th most');
-        break;
-    default:
-        console.log('Invalid input');    
-}
+// switch (language2) {
+//     case 'Chinese':
+//     case 'Mandarin':
+//         console.log('Most number of native speakers');
+//         break;
+//     case 'Spanish':
+//         console.log('2nd most');
+//         break;
+//     case 'English':
+//         console.log('3rd most');
+//         break;
+//     case 'Hindi':
+//         console.log('4th most');
+//         break;
+//     case 'Hindi':
+//         console.log('4th most');
+//         break;
+//     default:
+//         console.log('Invalid input');    
+// }
+
+
+//CONDITIONAL OPERATOR
+
+// const myCountryPop = population >= 33000000 ? "NZ's population is above average" : "NZ's population is below average"; 
+
+// console.log(myCountryPop);
+
+//refactored
+// console.log(`${country}'s population is ${population > 33000000 ? 'above' : 'below'} average`);
