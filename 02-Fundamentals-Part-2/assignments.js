@@ -43,4 +43,16 @@ const perOfWorld3 = population => (population / 7900) * 100;
 const nzPop = perOfWorld3(5);
 const chinaPop = perOfWorld3(1411);
 
-console.log(nzPop, chinaPop);
+// console.log(nzPop, chinaPop);
+
+
+//FUNCTIONS CALLING OTHER FUNCTIONS
+
+const describePopulation = (country, population) => {
+    const percentage = perOfWorld1(population).toFixed(2)
+    const description = `${country} has a population of ${population} million people, which is about ${percentage} of the worlds population.`
+    console.log(description);
+} 
+
+describePopulation('NZ', 5)
+
