@@ -67,4 +67,29 @@ const percentages = [
   perOfWorld1(populations[2]),
   perOfWorld1(populations[3]),
 ];
-console.log(percentages);
+// console.log(percentages);
+
+//BASIC ARRAY METHODS
+
+const neighbours = ['France', 'Poland', 'Switzerland'];
+
+//add an element to the end of an array
+neighbours.push('Utopia')
+
+//remove the last element from the end of an array
+neighbours.pop('Utopia')
+
+//conditional statement dependent on 'Germany' being in the array
+if (neighbours.includes('Germany')) {
+	console.log(`You've picked a European country`);
+} else {
+	console.log('Probably not a European country');
+}
+
+//find the index of a particular element (= 0)
+console.log(neighbours.indexOf('France'));
+
+//change the element
+neighbours[0] = 'Beautiful France'
+
+// console.log(neighbours);
