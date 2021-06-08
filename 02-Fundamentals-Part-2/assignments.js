@@ -58,7 +58,7 @@ describePopulation("NZ", 5);
 const populations = [200, 20, 5, 60];
 
 // boolean value denoting if the array length is 4 or not
-console.log(populations.length === 4);
+// console.log(populations.length === 4);
 
 //calculates the percentage of each population in relation to the population of the world, using the perOfWorld1 function created earlier
 const percentages = [
@@ -81,15 +81,35 @@ neighbours.pop('Utopia')
 
 //conditional statement dependent on 'Germany' being in the array
 if (neighbours.includes('Germany')) {
-	console.log(`You've picked a European country`);
+	// console.log(`You've picked a European country`);
 } else {
-	console.log('Probably not a European country');
+	// console.log('Probably not a European country');
+}
+
+//alternatively (! = if Germany is not included, the opposite of the statement)
+if (!neighbours.includes('Germany')) {
+	// console.log('Probably not a European country');
 }
 
 //find the index of a particular element (= 0)
-console.log(neighbours.indexOf('France'));
+// console.log(neighbours.indexOf('France'));
 
 //change the element
 neighbours[0] = 'Beautiful France'
 
+//alternatively 
+neighbours[neighbours.indexOf('France')] = 'Beautiful France';
+
 // console.log(neighbours);
+
+//INTRO TO OBJECTS
+
+const myCountry = {
+	country: 'New Zealand',
+	capital: 'Wellington',
+	language: 'English',
+	population: '5 million'
+}
+
+console.log(`${myCountry.country} has a population of ${myCountry.population} people`);
+
