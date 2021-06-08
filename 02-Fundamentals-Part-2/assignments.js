@@ -118,11 +118,11 @@ neighbours[neighbours.indexOf('France')] = 'Beautiful France';
 
 //OBJECT CHALLENGE
 
-const jonas = {
-	firstName: 'Jonas',
-	lastName: 'Schmedtmann',
-	friends: ['Michael', 'Peter', 'Steven']
-};
+// const jonas = {
+// 	firstName: 'Jonas',
+// 	lastName: 'Schmedtmann',
+// 	friends: ['Michael', 'Peter', 'Steven']
+// };
 
 // console.log(jonas);
 
@@ -150,3 +150,22 @@ myCountry['population'] -= 3
 
 // console.log(myCountry.population);
 
+//OBJECT CHALLENGE 2
+
+const jonas = {
+	firstName: 'Jonas',
+	lastName: 'Schmedtmann',
+	job: 'teacher',
+	birthYear: 1991,
+	friends: ['Michael', 'Peter', 'Steven'],
+	hasDriversLicence: true,
+	calcAge: function () {
+		this.age = 2021 - this.birthYear
+		return this.age
+	},
+	jonasSummary: function () { 
+		return `${jonas.firstName} is a ${jonas.calcAge()} year old ${jonas.job} who has ${this.hasDriversLicence ? 'a' : 'no'} drivers licence.`
+	},	
+}
+
+// console.log(jonas.jonasSummary());
