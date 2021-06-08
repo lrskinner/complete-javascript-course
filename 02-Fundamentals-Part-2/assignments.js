@@ -104,12 +104,49 @@ neighbours[neighbours.indexOf('France')] = 'Beautiful France';
 
 //INTRO TO OBJECTS
 
+// const myCountry = {
+// 	country: 'New Zealand',
+// 	capital: 'Wellington',
+// 	language: 'English',
+// 	population: '5 million',
+// 	neighbours: 0,
+// }
+
+// console.log(myCountry);
+
+// console.log(`${myCountry.country} has a population of ${myCountry.population} people`);
+
+//OBJECT CHALLENGE
+
+const jonas = {
+	firstName: 'Jonas',
+	lastName: 'Schmedtmann',
+	friends: ['Michael', 'Peter', 'Steven']
+};
+
+// console.log(jonas);
+
+// console.log(`${jonas.firstName} has ${jonas.friends.length} friends and his best friend is ${jonas.friends[0]}`);
+
+//DOT VS BRACKET NOTATION
+
 const myCountry = {
 	country: 'New Zealand',
 	capital: 'Wellington',
 	language: 'English',
-	population: '5 million'
+	population: 5,
+	neighbours: 7,
 }
 
-console.log(`${myCountry.country} has a population of ${myCountry.population} people`);
+const myCountryDes = `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours} neighbouring countries and its capital is ${myCountry.capital}.`;
+
+// console.log(myCountryDes);
+
+myCountry.population += 2
+
+// console.log(myCountry.population);
+
+myCountry['population'] -= 3
+
+// console.log(myCountry.population);
 
