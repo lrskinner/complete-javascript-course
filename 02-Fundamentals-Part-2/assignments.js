@@ -177,17 +177,36 @@
 // }
 
 //LOOPING ARRAYS, BREAKING AND CONTINUING
-function perOfWorld1(population) {
-  return (population / 7900) * 100;
-}
+// function perOfWorld1(population) {
+//   return (population / 7900) * 100;
+// }
 
-const populations = [200, 20, 5, 60];
-const percentages = [];
+// const populations = [200, 20, 5, 60];
+// const percentages = [];
 
-for (let i = 0; i < populations.length; i++) {
-	const percentages1 = perOfWorld1(populations[i]);
-	percentages.push(percentages1)
-}
+// for (let i = 0; i < populations.length; i++) {
+// 	const percentages1 = perOfWorld1(populations[i]);
+// 	percentages.push(percentages1)
+// }
 
-console.log(percentages);
+// console.log(percentages);
 
+
+//LOOPING BACKWARDS AND LOOPS IN LOOPS
+
+const listOfNeighbours = [
+	[
+	'Canada',
+	'Mexico',
+	'Spain',
+	'Norway',
+	'Sweden',
+	'Russia'
+	]
+]
+//go through the listOfNeighbours array and access the array
+for(let i = 0; i < listOfNeighbours.length; i++) 
+	//go through that array we just accessed and access each element 
+	for (let x = 0; x < listOfNeighbours[i].length; x++)
+	//print each element inside the array that is inside the listOfNeighbours array
+	console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
