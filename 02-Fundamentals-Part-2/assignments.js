@@ -14,23 +14,23 @@
 
 //FUNCTION DECLARATIONS VS EXPRESSIONS
 
-Function declaration
+// Function declaration
 function perOfWorld1(population) {
   return (population / 7900) * 100;
 }
 
-Function expression
-const perOfWorld2 = function (population) {
-  return (population / 7900) * 100;
-};
+// Function expression
+// const perOfWorld2 = function (population) {
+//   return (population / 7900) * 100;
+// };
 
-const nzPop = perOfWorld1(5);
-const chinaPop = perOfWorld1(1411);
+// const nzPop = perOfWorld1(5);
+// const chinaPop = perOfWorld1(1411);
 
-console.log(nzPop, chinaPop);
+// console.log(nzPop, chinaPop);
 
-const portPop = perOfWorld2(10);
-const usaPop = perOfWorld2(332);
+// const portPop = perOfWorld2(10);
+// const usaPop = perOfWorld2(332);
 
 // console.log(portPop, usaPop);
 
@@ -205,11 +205,22 @@ const listOfNeighbours = [
 	]
 ]
 //go through the listOfNeighbours array and access the array
-for(let i = 0; i < listOfNeighbours.length; i++) 
+// for(let i = 0; i < listOfNeighbours.length; i++) 
 	//go through that array we just accessed and access each element 
-	for (let x = 0; x < listOfNeighbours[i].length; x++)
+	// for (let x = 0; x < listOfNeighbours[i].length; x++)
 	//print each element inside the array that is inside the listOfNeighbours array
-	console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
+	// console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
+
+//ANOTHER LOOP IN LOOP
+
+// for (let exercise = 1; exercise < 4; exercise ++) {
+// 	console.log(`----Starting exercise ${exercise}----`);
+
+// 	for (let rep = 1; rep < 6; rep++) {
+// 		console.log(`----Exercise ${exercise}: Lifting weights repitition ${rep}----`);
+// 	}
+// }
+
 
 //WHILE LOOP
 
@@ -217,15 +228,16 @@ for(let i = 0; i < listOfNeighbours.length; i++)
 // 	console.log(`--for loop-- Lifting weights repetition ${rep}`);
 // }
 
+//same as for loop above, using while instead
 // let rep = 1;
 // while(rep <= 10) {
 // 	console.log(`--while loop-- Lifting weights repetition ${rep}`);
 // 	rep++;
 // }
 
-let dice = Math.trunc(Math.random() * 6) + 1;
+let dice = Math.trunc(Math.random() * 5) + 1;
 
-while (dice !== 6) {
+while (dice !== 5) {
 	console.log(`You rolled a ${dice}`);
-	dice = Math.trunc(Math.random() * 6) + 1;
+	dice = Math.trunc(Math.random() * 5) + 1;
 }
