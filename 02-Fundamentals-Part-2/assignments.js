@@ -14,23 +14,23 @@
 
 //FUNCTION DECLARATIONS VS EXPRESSIONS
 
-//Function declaration
-// function perOfWorld1(population) {
-//   return (population / 7900) * 100;
-// }
+Function declaration
+function perOfWorld1(population) {
+  return (population / 7900) * 100;
+}
 
-//Function expression
-// const perOfWorld2 = function (population) {
-//   return (population / 7900) * 100;
-// };
+Function expression
+const perOfWorld2 = function (population) {
+  return (population / 7900) * 100;
+};
 
-// const nzPop = perOfWorld1(5);
-// const chinaPop = perOfWorld1(1411);
+const nzPop = perOfWorld1(5);
+const chinaPop = perOfWorld1(1411);
 
-// console.log(nzPop, chinaPop);
+console.log(nzPop, chinaPop);
 
-// const portPop = perOfWorld2(10);
-// const usaPop = perOfWorld2(332);
+const portPop = perOfWorld2(10);
+const usaPop = perOfWorld2(332);
 
 // console.log(portPop, usaPop);
 
@@ -172,22 +172,22 @@
 
 //ITERATION THE FOR LOOP
 
-// for (let voter = 1; voter <= 50; voter++) {
-// 	// console.log(`Voter number ${voter} is currently voting`);
-// }
+for (let voter = 1; voter <= 50; voter++) {
+	// console.log(`Voter number ${voter} is currently voting`);
+}
 
 //LOOPING ARRAYS, BREAKING AND CONTINUING
-// function perOfWorld1(population) {
-//   return (population / 7900) * 100;
-// }
+function perOfWorld1(population) {
+  return (population / 7900) * 100;
+}
 
-// const populations = [200, 20, 5, 60];
-// const percentages = [];
+const populations = [200, 20, 5, 60];
+const percentages = [];
 
-// for (let i = 0; i < populations.length; i++) {
-// 	const percentages1 = perOfWorld1(populations[i]);
-// 	percentages.push(percentages1)
-// }
+for (let i = 0; i < populations.length; i++) {
+	const percentages1 = perOfWorld1(populations[i]);
+	percentages.push(percentages1)
+}
 
 // console.log(percentages);
 
@@ -210,3 +210,22 @@ for(let i = 0; i < listOfNeighbours.length; i++)
 	for (let x = 0; x < listOfNeighbours[i].length; x++)
 	//print each element inside the array that is inside the listOfNeighbours array
 	console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
+
+//WHILE LOOP
+
+// for (let rep = 1; rep <= 10; rep++) {
+// 	console.log(`--for loop-- Lifting weights repetition ${rep}`);
+// }
+
+// let rep = 1;
+// while(rep <= 10) {
+// 	console.log(`--while loop-- Lifting weights repetition ${rep}`);
+// 	rep++;
+// }
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+	console.log(`You rolled a ${dice}`);
+	dice = Math.trunc(Math.random() * 6) + 1;
+}
