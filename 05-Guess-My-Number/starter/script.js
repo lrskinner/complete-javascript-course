@@ -35,30 +35,43 @@ document.querySelector('.check').addEventListener('click', function() {
         document.querySelector('.highscore').textContent = highscore;
       }
 
+
+  //when guess is wrong (too low or too high)
+    } else if (guess !== secretNumber) {
+      if (score > 1) {
+        document.querySelector('.message').textContent = guess < secretNumber ? 'Try a higher number' : 'Try a lower number';
+        score--;
+        document.querySelector('.score').textContent = score;
+        } else {
+          document.querySelector('.message').textContent = 'You lose';
+          document.querySelector('.score').textContent = 0
+        }
+    } 
+
   //when guess is too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-    document.querySelector('.message').textContent = 'Try a higher number';
-    score--;
-    document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You lose';
-      document.querySelector('.score').textContent = 0
-    }
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //   document.querySelector('.message').textContent = 'Try a higher number';
+  //   score--;
+  //   document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You lose';
+  //     document.querySelector('.score').textContent = 0
+  //   }
 
   //when guess is too high
-  } else if (guess > secretNumber) {
-    if (score > 1) {
-    document.querySelector('.message').textContent = 'Try a lower number';
-    score--;
-    document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You lose';
-      document.querySelector('.score').textContent = 0
-    }
-  } else if (document.querySelector('.score').textContent = 0) {
-    document.querySelector('.message').textContent = 'You lose';
-  }
+  // } else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //   document.querySelector('.message').textContent = 'Try a lower number';
+  //   score--;
+  //   document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You lose';
+  //     document.querySelector('.score').textContent = 0
+  //   }
+  // } else if (document.querySelector('.score').textContent = 0) {
+  //   document.querySelector('.message').textContent = 'You lose';
+  // }
 })
 
 
@@ -73,8 +86,4 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 })
-
-//when message = correct number 
-//save score value to highscore value
-//if a highernumber is attained, change highscore value to higher number
 
