@@ -6,7 +6,22 @@ let secretNumber = Math.trunc(Math.random()*20)+1;
 let score = 20;
 let highscore = 0;
 
-// let selectMessage = document.querySelector('.message').textContent
+//refactoring by getting rid of duplicate code and instead creating a function that can be called 
+const displayMessage = message => {
+  document.querySelector('.message').textContent = message;
+}
+
+const changeBackgroundColor = color => {
+document.querySelector('body').style.backgroundColor = color;
+}
+
+const changeScore = score => {
+  document.querySelector('.score').textContent = score;
+}
+
+const secretNumberCalc = number => { 
+number = Math.trunc(Math.random()*20)+1;
+}
 
 //returns 'check' class element then executes the event listener function
 //the 2 parameters of the function is the click class element and the value of a function
@@ -18,13 +33,17 @@ document.querySelector('.check').addEventListener('click', function() {
 
   //when there is no input
   if (!guess) {
-    document.querySelector('.message').textContent = 'No number';
+    displayMessage('No number');
+    //document.querySelector('.message').textContent = 'No number';
 
   //when guess is correct
   } else if (guess === secretNumber){
-    document.querySelector('.message').textContent = 'CORRECT!';
+    displayMessage('CORRECT!');
+    //the below code does the same as the above function
+    //--> document.querySelector('.message').textContent = 'CORRECT!';
+
     //change background colour to green
-    document.querySelector('body').style.backgroundColor = '#60b347';
+    changeBackgroundColor('#60b347');
     //double width of number
     document.querySelector('.number').style.width = '30rem';
     //display secret number when guessed correctly
@@ -39,12 +58,12 @@ document.querySelector('.check').addEventListener('click', function() {
   //when guess is wrong (too low or too high)
     } else if (guess !== secretNumber) {
       if (score > 1) {
-        document.querySelector('.message').textContent = guess < secretNumber ? 'Try a higher number' : 'Try a lower number';
+        displayMessage(guess < secretNumber ? 'Try a higher number' : 'Try a lower number');
         score--;
-        document.querySelector('.score').textContent = score;
+        changeScore(score);
         } else {
-          document.querySelector('.message').textContent = 'You lose';
-          document.querySelector('.score').textContent = 0
+          displayMessage('You lose');
+          changeScore(0);
         }
     } 
 
@@ -74,13 +93,12 @@ document.querySelector('.check').addEventListener('click', function() {
   // }
 })
 
-
+//again button functionality - restores game to the beginning state while retaining the highscore
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
-  secretNumber = Math.trunc(Math.random()*20)+1;
-
-  document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('.score').textContent = score;  
+  secretNumberCalc(secretNumber);
+  displayMessage('Start guessing...');
+  changeScore(score);  
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = '#222';
