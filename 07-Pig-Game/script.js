@@ -21,16 +21,26 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+//declare these seperate variables globally
+let scores, currentScore, activePlayer;
 
 //starting conditions
-score0Ele.textContent = 0;
-score1Ele.textContent = 0;
-diceEle.classList.add('hidden');
-
-const scores = [0, 0];
-let currentScore = 0;
-//create a variable for the active player, 0 being player 1, 1 being player 2
-let activePlayer = 0;
+const init = () => {
+  scores = [0, 0];
+  currentScore = 0;
+  //create a variable for the active player, 0 being player 1, 1 being player 2
+  activePlayer = 0;
+  playing = true;
+  score0Ele.textContent = 0;
+  score1Ele.textContent = 0;
+  current0Ele.textContent = 0;
+  current1Ele.textContent = 0;
+  diceEle.classList.add('hidden');
+  document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
+  player1.classList.add('player--active');
+  player2.classList.remove('player--active');
+}
+init()
 
 const switchPlayer = () => {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -87,12 +97,5 @@ btnHold.addEventListener('click', () => {
 });
 
 //new game button functionality
-btnNew.addEventListener('click', () => {
-  console.log('new button clicked');
-  score0Ele.textContent = 0;
-  score1Ele.textContent = 0;
-  current0Ele.textContent = 0;
-  current1Ele.textContent = 0;
-  player1.classList.add('player--active')
-  player2.classList.remove('player--active')
-})
+btnNew.addEventListener('click', init);
+
