@@ -27,3 +27,13 @@ calcAge(1992);
 ///these variables aren't available in the global scope
 //console.log(age);
 //printAge();
+
+//'this' keyword
+
+console.log(this)
+
+const calcAge = function(birthYear) {
+  console.log(2017 - birthYear);
+  console.log(this);
+}
+calcAge(1991);
