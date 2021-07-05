@@ -12,12 +12,12 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function(starterIndex, mainIndex) {
+  order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 };
 
-const arr = [2,3,4];
+const arr = [2, 3, 4];
 
 const a = arr[0];
 const b = arr[1];
@@ -42,16 +42,26 @@ console.log(main, secondary);
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
 
-
 //nested destructuring
 const nested = [2, 4, [5, 6]];
-//to access the values, create a new array variable. to skip the second value in the original array, add in an empty space 
+//to access the values, create a new array variable. to skip the second value in the original array, add in an empty space
 const [i, , j] = nested;
 // console.log(i, j);
 //result:
 //2 (2) [5, 6]
 
 const [k, , [l, m]] = nested;
-console.log(k,l,m);
+console.log(k, l, m);
 //result:
 //2 5 6
+
+// Setting default values when no value is present
+// const [p, q, r] = [8, 9];
+// console.log(p, q, r);
+//result:
+//8 9 undefined
+
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+//result:
+//8 9 1
