@@ -28,7 +28,31 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  //destructure restaurant object within the function arguments and create default values
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '01:00',
+    address,
+  }) {
+    console.log(
+      `Order receieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
+
+//calling the function with the required values as an object
+restaurant.orderDelivery({
+  time: '22:30',
+  address: '10 Table Street',
+  mainIndex: 2,
+  starterIndex: 1,
+});
+
+restaurant.orderDelivery({
+  address: 'Pizza Hut',
+  starterIndex: 1,
+});
 
 ////////////////////////////////////////////////////////
 //destructuring objects
@@ -38,7 +62,7 @@ const restaurant = {
 
 //creates 3 new variables based off of the restaurant object
 const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// console.log(name, openingHours, categories);
 //result:
 //Classico Italiano {thu: {…}, fri: {…}, sat: {…}}fri: {open: 11, close: 23}sat: {open: 0, close: 24}thu: {open: 12, close: 12}__proto__: Object (4) ["Italian", "Pizzeria", "Vegetarian", "Organic"]
 
@@ -48,11 +72,11 @@ const {
   openingHours: hours,
   categories: tags,
 } = restaurant;
-console.log(restaurantName, hours, tags);
+// console.log(restaurantName, hours, tags);
 
 //setting default values when there is no value present
 const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// console.log(menu, starters);
 //the menu variable doesn't exist so shows as an empty array
 
 ////////////////////////////////////////////////////////
@@ -62,7 +86,7 @@ let b = 999;
 const obj = { a: 23, b: 7, c: 54 };
 //can't begin a new line of code with a curly bracket, it's expecting a code block in front of it, wrap in parenthesis to fix this
 ({ a, b } = obj);
-console.log(a, b);
+// console.log(a, b);
 
 ////////////////////////////////////////////////////////
 //destructuring nested objects
@@ -70,7 +94,7 @@ console.log(a, b);
 const {
   fri: { open: o, close: c },
 } = openingHours;
-console.log(o, c);
+// console.log(o, c);
 
 ////////////////////////////////////////////////////////
 //destructuring arrays
