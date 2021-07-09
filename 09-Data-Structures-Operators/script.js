@@ -39,7 +39,31 @@ const restaurant = {
       `Order receieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (img1, img2, img3) {
+    console.log(
+      `Here is your delicious pasta with ${img1}, ${img2} and ${img3}`
+    );
+  },
 };
+
+// Real world example
+const ingredients = [
+  // prompt("Let's make pasta!"),
+  // prompt('Ingredient 2'),
+  // prompt('Ingredient 3'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients)
+
+// Objects
+
+const newRestaurant = {...restaurant, founder: 'Bobbi', foundedIn: 2003};
+
+console.log(newRestaurant);
+
+const restCopy = {...restaurant};
 
 //calling the function with the required values as an object
 restaurant.orderDelivery({
@@ -55,7 +79,40 @@ restaurant.orderDelivery({
 });
 
 ////////////////////////////////////////////////////////
-//destructuring objects
+// Spread operator
+//creates a copy of whichever array variable '...' is placed in front of - writes the values from the array and copies them to wherever specified
+//can only be used in places where values are generally separated by commas - it doesn't create new variables
+
+const arr = [7, 8, 9];
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+//also expands each value from an array to individual values, not in an array format
+// console.log(...newArr);
+// console.log(...arr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// Copy array
+const mainMenu = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const fullMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(fullMenu);
+
+//Iterables are arrays, strings, maps and sets - but not objects
+const str = 'Leah';
+const letters = [...str];
+// console.log(letters);
+//produces an array of each separate letter
+// console.log(...str);
+//produces each separate letter as its own value outside of an array
+// console.log(`${...str} Skinner);
+//this won't work, inside the template literal here a variable is expected, not a place where values seperated by commas are expected
+//it is only expected as an argument being passed into a function or when building a new array
+
+////////////////////////////////////////////////////////
+// Destructuring objects
 
 //you don't need to manually skip with a space and comma like with arrays
 //the order doesn't matter either
