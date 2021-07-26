@@ -35,15 +35,15 @@ const restaurant = {
     time = '01:00',
     address,
   }) {
-    console.log(
-      `Order receieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
+    // console.log(
+    //   `Order receieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    // );
   },
 
   orderPasta: function (img1, img2, img3) {
-    console.log(
-      `Here is your delicious pasta with ${img1}, ${img2} and ${img3}`
-    );
+    // console.log(
+    //   `Here is your delicious pasta with ${img1}, ${img2} and ${img3}`
+    // );
   },
 };
 
@@ -53,17 +53,17 @@ const ingredients = [
   // prompt('Ingredient 2'),
   // prompt('Ingredient 3'),
 ];
-console.log(ingredients);
+// console.log(ingredients);
 
-restaurant.orderPasta(...ingredients)
+restaurant.orderPasta(...ingredients);
 
 // Objects
 
-const newRestaurant = {...restaurant, founder: 'Bobbi', foundedIn: 2003};
+const newRestaurant = { ...restaurant, founder: 'Bobbi', foundedIn: 2003 };
 
-console.log(newRestaurant);
+// console.log(newRestaurant);
 
-const restCopy = {...restaurant};
+const restCopy = { ...restaurant };
 
 //calling the function with the required values as an object
 restaurant.orderDelivery({
@@ -85,7 +85,7 @@ restaurant.orderDelivery({
 
 const arr = [7, 8, 9];
 const newArr = [1, 2, ...arr];
-console.log(newArr);
+// console.log(newArr);
 //also expands each value from an array to individual values, not in an array format
 // console.log(...newArr);
 // console.log(...arr);
@@ -202,3 +202,97 @@ const {
 // console.log(p, q, r);
 //result:
 //8 9 1
+
+// SPREAD VS REST OPERATOR
+
+//1) Destructuring
+
+//SPREAD - on the right hand side of the = operator
+let arr0 = [1, 2, ...[3, 4]];
+
+//REST - on the left of the = operator
+//it's called rest because it takes the rest/remaining elements of the array and put them into a new array(e.g. others), it collects the element that haven't been used
+const [t, v, ...others] = [1, 2, 3, 4, 5];
+// console.log(t, v, others);
+//the outcome is, 1, 2, [3, 4, 5]
+
+//...otherFood grabs the remainder of the elements in both mainMenu and starterMenu after the last variable (doesn't include any skipped elements as we've done after pizza (,)) and puts them in their own array.
+//as a result the rest element needs to be the last one
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+//2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  // console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(4, 5, 5, 6, 9, 56);
+
+const x = [23, 56, 89];
+add(...x);
+
+// SHORT-CIRCUITING (short curcuit evaluation)
+// with these evaluations, js will 'short-curcuit' aftet the first element if it is true, it won't even look at the rest of the evaluation
+
+//using any data type
+//doesn't need to be a boolean
+//will return the truthy value
+
+console.log('----OR----')
+
+console.log(3 || 'Leah');
+//result: 3
+console.log('' || 'Leah');
+//result: Leah
+console.log(true || 0);
+//result: true
+console.log(undefined || null);
+//result: null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+//the result is Hello, the first truthy that is evaluated will be printed
+
+//Ternary operator
+//if numGuests is true e.g. exists, guests1 = numGuests
+//if it doesn't, print 10
+
+// restaurant.numGuests = 30;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+
+console.log(guests1);
+
+//You get the same result with || (or)
+
+const guests2 = restaurant.numGuests || 10;
+
+console.log(guests2);
+
+console.log('----AND----');
+
+//The and operator executes only when both values are true
+
+console.log(0 && 'Leah');
+console.log('Hi' && 'Leah');
+
+//Practical Example
+
+//this if statement can be shortened to an AND operator evaluation 
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach')
+};
+
+restaurant.orderPizza && restaurant.orderPizza('cheese', 'more cheese');
+
+//if the orderPizza function exists, run the function
