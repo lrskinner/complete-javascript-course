@@ -2,11 +2,10 @@
 
 const shoeSizeConversion = size => {
   let mens = size - 2;
-  console.log(`Your women's size ${size} shoe is a size ${mens} men's shoe`);
+  console.log(`Your women's size ${size} shoe is a men's size ${mens} shoe`);
 } 
 
-shoeSizeConversion(10)
-shoeSizeConversion(11)
+shoeSizeConversion(8)
 
 //Convert kg to lb
 
