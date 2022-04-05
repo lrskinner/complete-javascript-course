@@ -9,10 +9,8 @@ console.log(document.querySelector('.message').textContent);
 //Game code
 
 const secretNumber = Math.trunc(Math.random() *20) +1; //will produce random number up to 20, + 1 makes sure 20 will be included
-
 let score = 20;
-
-
+let highscore = 0;
 
 //click handler needs 2 values - the action and the function detailing the method
 document.querySelector('.check').addEventListener('click', function () {
@@ -28,9 +26,15 @@ document.querySelector('.check').addEventListener('click', function () {
 		document.querySelector(".message").textContent = '🥳 Correct Number!';
     document.querySelector('.number').textContent = secretNumber;
 
+    // style changes
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
 
+    // highscore function
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
   // when guess is too high  
 	} else if (guess > secretNumber) {
@@ -60,9 +64,6 @@ document.querySelector('.check').addEventListener('click', function () {
 
 // again button function
 document.querySelector('.again').addEventListener('click', function () {
-  // secretNumber = Math.trunc(Math.random() *20) +1; 
-  // score = 20;
-
   document.querySelector('.message').textContent = 'Start guessing...';
   document.querySelector('.number').textContent = '?';
   document.querySelector('.score').textContent = 20;
